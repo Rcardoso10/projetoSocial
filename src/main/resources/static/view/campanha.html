@@ -1,0 +1,81 @@
+
+
+<div class="breadcrumb">
+    <div class="container-fluid">
+
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Campanhas</li>
+        <li class="col-md-12">
+          <button type="button" class="btn btn-default btn-circle waves-effect waves-circle waves-float pull-right"
+                  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                  style="..." >
+            <i class="material-icons">toc</i>
+          </button>
+          <ul class="dropdown-menu pull-right">
+            <li><a data-ng-click="limpar()" ng-if="registrar">Limpar</a></li>
+            <li><a data-ng-click="changeToSave()" ng-if="!registrar">Cadastrar</a></li>
+            <li><a data-ng-click="changeToList()" ng-if="!listar">Listar</a></li>
+          </ul>
+        </li>
+      </ol>
+
+      <!-- /.Formulário-->
+      <form class="form-control"  ng-if="!listar">
+
+        
+
+        <label></label>
+        <div>
+          <button data-ng-click="save()" class="btn btn-primary " ng-if="registrar" type="submit">Salvar</button>
+          <button data-ng-click="update()" class="btn btn-primary " ng-if="editar" type="submit">Atualizar</button>
+        </div>
+        <label></label>
+      </form>
+
+      <!-- Example DataTables Card-->
+      <div class="card mb-3" ng-if="listar">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Tabela de Clientes</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Endereço</th>
+                  <th>Cpf</th>
+                  <th>Telefone</th>
+                  <th>#</th>
+                  <th>#</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                  <tr ng-repeat="client in customers">
+                    <td>{{client.name}}</td>
+                    <td>{{client.address}}</td>
+                    <td>{{client.cpf}}</td>
+                    <td>{{client.phone}}</td>
+                    <td style="text-align: center">
+                      <i ng-click="seleciona(client)"
+                         class="material-icons"
+                         title="Editar">mode_edit</i>
+                    </td>
+                    <td>
+                      <i ng-click="deletar(client)"
+                         class="glyphicon glyphicon-pencil"
+                         title="Excluir">Excluir</i>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+</div>
