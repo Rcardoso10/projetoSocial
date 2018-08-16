@@ -1,106 +1,250 @@
-<div class="breadcrumb">
-    <div class="container-fluid">
+<div class="col-lg-12">
+    <div class="card" style="min-height:250px;">
+        <form id="RegisterValidation">
+            <div class="card-content">
+                <h4 class="card-title">
+                    Edição
+                </h4>
 
+                <div class="form-group">
+                    <div class="row">
 
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">Campanhas</li>
-            <li class="col-md-12">
-                <button type="button" class="btn btn-default btn-circle waves-effect waves-circle waves-float pull-right"
-                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-                        style="..." >
-                    <i class="material-icons">toc</i>
-                </button>
-                <ul class="dropdown-menu pull-right">
-                    <li><a data-ng-click="limpar()" ng-if="registrar">Limpar</a></li>
-                    <li><a data-ng-click="changeToSave()" ng-if="!registrar">Cadastrar</a></li>
-                    <li><a data-ng-click="changeToList()" ng-if="!listar">Listar</a></li>
-                </ul>
-            </li>
-        </ol>
+                        <div class="col-sm-8">
+                            <label class="col-form-label">
+                                Nome
+                                <small>*</small>
+                            </label>
 
-        <!-- /.Formulário-->
-        <form class="form-control"  ng-if="!listar">
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.name"/>
+                        </div>
 
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label>Nome</label>
-                        <input type="text" ng-model="$parent.client.name" class="form-control" required="required">
                     </div>
-                    <div class="col-md-6">
-                        <label>Endereço</label>
-                        <input type="text" ng-model="$parent.client.address" class="form-control" required="required">
+
+                    </br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                CPF
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.cpf"/>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="col-form-label">
+                                Login
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.messengerLogin"
+                                   ng-disabled="true"/>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label">
+                                DDD
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.ddd"/>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Telefone
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.phone"/>
+                        </div>
+
                     </div>
+
+                    </br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="col-form-label">
+                                Status
+                                <small>*</small>
+                            </label>
+                            <div class="select">
+                                <select class="form-control"
+                                        ng-model="employee.situation"
+                                        style="margin-top: 11px;">
+                                    <option value="">Escolhe a opção</option>
+                                    <option ng-selected="employee.situation === 'A'"
+                                            value="A">ATIVO</option>
+                                    <option ng-selected="employee.situation === 'I'"
+                                            value="I">INATIVO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="col-form-label">
+                                Turno
+                                <small>*</small>
+                            </label>
+
+                            <div class="select">
+                                <select class="form-control"
+                                        ng-model="employee.shiftCode"
+                                        style="margin-top: 11px;">
+                                    <option value="">Escolhe a opção</option>
+                                    <option ng-selected="employee.shiftCode === 1"
+                                            value="1">MANHA</option>
+                                    <option ng-selected="employee.shiftCode === 2"
+                                            value="2">TARDE</option>
+                                    <option ng-selected="employee.shiftCode === 3"
+                                            value="3">INTEGRAL</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="col-form-label">
+                                Cargo
+                                <small>*</small>
+                            </label>
+
+                            <div class="select">
+                                <select class="form-control"
+                                        ng-model="employee.officeCode"
+                                        style="margin-top: 11px;">
+                                    <option value="">Escolhe a opção</option>
+                                    <option ng-selected="employee.officeCode === 1"
+                                            value="1">OPERADOR DE TELEMARKETING</option>
+                                    <option ng-selected="employee.officeCode === 2"
+                                            value="2">MENSAGEIRO</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </br>
+                    </br>
+
+                    <h5 class="card-title">Informações de Endereço</h5>
+
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                CEP
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.zipCode"/>
+                        </div>
+                        <div class="col-sm-7">
+                            <label class="col-form-label">
+                                Endereço
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.address"/>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="col-form-label">
+                                Número
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.number"/>
+                        </div>
+                    </div>
+
+                    </br>
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Complemento
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.complement"/>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Bairro
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.neighborhood"/>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Estado
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.uf"/>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Cidade
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.city"/>
+                        </div>
+                    </div>
+
+                    </br>
+                    </br>
+
+                    <h5 class="card-title">Informações de Adicionais</h5>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="col-form-label">
+                                Observações
+                                <small>*</small>
+                            </label>
+                            <textarea class="form-control"
+                                      type="text"
+                                      ng-model="employee.note"
+                                      rows="10">
+                            </textarea>
+                        </div>
+                    </div>
+
+
                 </div>
 
+                <div class="category form-category">
+                    <small>*</small> Campos Obrigatórios </div>
 
+                <div class="form-footer text-right">
 
+                    <button ng-click="back()"
+                            class="btn">Voltar</button>
 
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label>Cpf</label>
-                        <input type="text" ui-mask="999.999.999-99" ng-model="$parent.client.cpf"
-                               class="form-control key" required="required">
-                    </div>
-                    <div class="col-md-6">
-                        <label>Telefone</label>
-                        <input type="text" ui-mask="(99) 9999-9999" ng-model="$parent.client.phone"
-                               class="form-control mobile-phone-number" required="required">
-                    </div>
+                    <button ng-click="submit()"
+                            class="btn btn-primary">Editar</button>
                 </div>
-
-
-            <label></label>
-            <div>
-                <button data-ng-click="save()" class="btn btn-primary " ng-if="registrar" type="submit">Salvar</button>
-                <button data-ng-click="update()" class="btn btn-primary " ng-if="editar" type="submit">Atualizar</button>
             </div>
-            <label></label>
         </form>
-
-        <!-- Example DataTables Card-->
-        <div class="card mb-3" ng-if="listar">
-            <div class="card-header">
-                <i class="fa fa-table"></i> Tabela de Clientes</div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Cpf</th>
-                            <th>Telefone</th>
-                            <th>#</th>
-                            <th>#</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr ng-repeat="client in customers">
-                            <td>{{client.name}}</td>
-                            <td>{{client.address}}</td>
-                            <td>{{client.cpf}}</td>
-                            <td>{{client.phone}}</td>
-                            <td style="text-align: center">
-                                <i ng-click="seleciona(client)"
-                                   class="material-icons"
-                                   title="Editar">mode_edit</i>
-                            </td>
-                            <td>
-                                <i ng-click="deletar(client)"
-                                   class="glyphicon glyphicon-pencil"
-                                   title="Excluir">Excluir</i>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
     </div>
 </div>

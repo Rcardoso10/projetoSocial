@@ -1,5 +1,7 @@
 package com.surpreenda.projetosocial.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,12 +17,22 @@ public class Campanha implements Serializable {
     @Column(name = "ID")
     private Long id;
 
+    @Column(name = "TITULO")
+    private String titulo;
+
+    @Column(name = "STATUS")
+    private String status ;
+
     @Column(name = "DESCRICAO")
     private String descricao;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     @Column(name = "DATAINICIO")
     private Date dataInicio;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     @Column(name = "DATAFINAL")
     private Date dataFinal;
 
@@ -34,8 +46,22 @@ public class Campanha implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long id) { this.id = id; }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDescricao() {

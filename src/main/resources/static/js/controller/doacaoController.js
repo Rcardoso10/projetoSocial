@@ -23,7 +23,10 @@ angular.module("app").controller("doacaoController", function ($scope, doacaoSer
 
     $scope.changeToList = function () {
         listar();
+        $scope.registrar = false;
+        $scope.listar = true;
+        $scope.editar = false;
     };
 
-
+    $scope.changeToList();
 });

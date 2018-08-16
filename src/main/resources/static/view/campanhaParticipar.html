@@ -1,0 +1,108 @@
+<div class="container" >
+    <div class="card" style="min-height:250px;">
+        <form id="RegisterValidation">
+            <div class="card-content">
+                <h4 class="card-title">
+                    Cadastrar
+                </h4>
+
+                <div class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <label class="col-form-label">
+                                Nome
+                                <small>*</small>
+                            </label>
+
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.name"/>
+                        </div>
+
+                    </div>
+
+                    </br>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Endereço
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.cpf"/>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="col-form-label">
+                                Telefone
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.messengerLogin" />
+                        </div>
+
+                        <div class="col-sm-2">
+                            <label class="col-form-label">
+                                CPF
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.ddd"/>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="col-form-label">
+                                Cidade
+                                <small>*</small>
+                            </label>
+                            <input class="form-control"
+                                   type="text"
+                                   ng-model="employee.phone"/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                </br>
+
+                <h5 class="card-title">Informações de Adicionais</h5>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="col-form-label">
+                            Descrição
+                            <small>*</small>
+                        </label>
+                        <textarea class="form-control"
+                                  type="text"
+                                  ng-model="employee.note"
+                                  rows="10">
+                            </textarea>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="category form-category">
+                <small>*</small> Campos Obrigatórios </div>
+
+            <div class="form-footer text-right">
+
+                <button ng-click="back()"
+                        class="btn">Voltar</button>
+
+                <button ng-click="submit()"
+                        class="btn btn-primary">Editar</button>
+            </div>
+
+    </div>
+    </form>
+</div>
+</div>
