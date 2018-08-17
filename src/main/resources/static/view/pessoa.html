@@ -1,3 +1,4 @@
+
 <div class="container" >
     <div class="card" style="min-height:250px;">
         <form id="RegisterValidation">
@@ -33,6 +34,7 @@
                     </div>
 
                     </br>
+
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="col-form-label">
@@ -61,7 +63,7 @@
                             </label>
                             <input class="form-control"
                                    type="text"
-                                   ng-model="pessoa.cidadee"/>
+                                   ng-model="pessoa.cidade"/>
                         </div>
 
                         <div class="col-sm-2">
@@ -79,52 +81,12 @@
 
                 </br>
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label class="col-form-label">
-                            Descrição
-                            <small>*</small>
-                            O que vc tem a dizer sobre esta campanha?
-                        </label>
-                        <textarea class="form-control"
-                                  type="text"
-                                  ng-model="doacao.descricaoCampanha"
-                                  rows="5">
-                        </textarea>
-                    </div>
-                </div>
-
-                </br>
-
-                <!-- Doação -->
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" placeholder="Quantidade"
-                                   ng-model="doacao.quantidade" required = "required">
-                        </div>
-                        <div class="col-sm-4">
-                            <select class="form-control"required="required" ng-model="doacao.unidadeMedida">
-                                <option class="disabled">Selecione</option>
-                                <option value="{{Kg}}">Kilo(s)</option>
-                                <option value="{{Lt}}">Litro(s)</option>
-                                <option value="{{Pc}}">Pacote(s)</option>
-                                <option value="{{Pca}}">Peça(s)</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" placeholder="Item"
-                                   required="required" ng-model="doacao.descricao">
-                        </div>
-                    </div>
-                </div>
-
                 <div class="form-footer text-right">
                     <button ng-click="back()"
-                        class="btn">Voltar</button>
+                            class="btn">Voltar</button>
 
-                    <button ng-click="save()"
-                        class="btn btn-primary">Confirmar Doação</button>
+                    <button ng-click="save(pessoa)"
+                            class="btn btn-primary">Cadastrar</button>
                 </div>
             </div>
 

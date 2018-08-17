@@ -3,9 +3,9 @@
   <div class="row justify-content-center" >
     <div class="col">
       <div class="circle-tile">
-        <a href="#/campanha/participar">
+        <a ng-click="onclick(campanha)">
           <div class="circle-tile-heading custom">
-            <i class="fa fa-check fa-fw fa-3x"></i>
+            <i class="fa fa-check fa-fw fa-3x" style="cursor: pointer;"></i>
           </div>
         </a>
         <div class="circle-tile-content custom">
@@ -15,7 +15,7 @@
             <p>Data do fim : {{campanha.dataFinal}}</p>
             <p>Descrição : {{campanha.descricao}}</p>
           </div>
-          <a href="#/campanha/participar" class="circle-tile-footer">Participar <i class="fa fa-chevron-circle-right"></i></a>
+          <a ng-click="onclick(campanha)" class="circle-tile-footer">Participar <i class="fa fa-chevron-circle-right" style="cursor: pointer"></i></a>
         </div>
       </div>
     </div>

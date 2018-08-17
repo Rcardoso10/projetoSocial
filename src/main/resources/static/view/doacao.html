@@ -1,250 +1,64 @@
-<div class="col-lg-12">
+<div class="container" >
     <div class="card" style="min-height:250px;">
         <form id="RegisterValidation">
             <div class="card-content">
                 <h4 class="card-title">
-                    Edição
+                   Realizar Doação
                 </h4>
 
+                </br>
+
+                <!-- Doação -->
                 <div class="form-group">
                     <div class="row">
-
-                        <div class="col-sm-8">
-                            <label class="col-form-label">
-                                Nome
-                                <small>*</small>
-                            </label>
-
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.name"/>
-                        </div>
-
-                    </div>
-
-                    </br>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                CPF
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.cpf"/>
-                        </div>
-
                         <div class="col-sm-4">
-                            <label class="col-form-label">
-                                Login
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.messengerLogin"
-                                   ng-disabled="true"/>
+                            <input type="text" class="form-control" placeholder="Quantidade"
+                                   ng-model="doacao.quantidade" required = "required">
                         </div>
-
-                        <div class="col-sm-2">
-                            <label class="col-form-label">
-                                DDD
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.ddd"/>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                Telefone
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.phone"/>
-                        </div>
-
-                    </div>
-
-                    </br>
-                    <div class="row">
                         <div class="col-sm-4">
-                            <label class="col-form-label">
-                                Status
-                                <small>*</small>
-                            </label>
-                            <div class="select">
-                                <select class="form-control"
-                                        ng-model="employee.situation"
-                                        style="margin-top: 11px;">
-                                    <option value="">Escolhe a opção</option>
-                                    <option ng-selected="employee.situation === 'A'"
-                                            value="A">ATIVO</option>
-                                    <option ng-selected="employee.situation === 'I'"
-                                            value="I">INATIVO</option>
-                                </select>
-                            </div>
+                            <select class="form-control"required="required" ng-model="doacao.unidadeMedida">
+                                <option disabled="disabled">Selecione</option>
+                                <option value="{{Kg}}">Kilo(s)</option>
+                                <option value="{{Lt}}">Litro(s)</option>
+                                <option value="{{Pc}}">Pacote(s)</option>
+                                <option value="{{Pca}}">Peça(s)</option>
+                            </select>
                         </div>
-
                         <div class="col-sm-4">
-                            <label class="col-form-label">
-                                Turno
-                                <small>*</small>
-                            </label>
-
-                            <div class="select">
-                                <select class="form-control"
-                                        ng-model="employee.shiftCode"
-                                        style="margin-top: 11px;">
-                                    <option value="">Escolhe a opção</option>
-                                    <option ng-selected="employee.shiftCode === 1"
-                                            value="1">MANHA</option>
-                                    <option ng-selected="employee.shiftCode === 2"
-                                            value="2">TARDE</option>
-                                    <option ng-selected="employee.shiftCode === 3"
-                                            value="3">INTEGRAL</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="col-sm-4">
-                            <label class="col-form-label">
-                                Cargo
-                                <small>*</small>
-                            </label>
-
-                            <div class="select">
-                                <select class="form-control"
-                                        ng-model="employee.officeCode"
-                                        style="margin-top: 11px;">
-                                    <option value="">Escolhe a opção</option>
-                                    <option ng-selected="employee.officeCode === 1"
-                                            value="1">OPERADOR DE TELEMARKETING</option>
-                                    <option ng-selected="employee.officeCode === 2"
-                                            value="2">MENSAGEIRO</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    </br>
-                    </br>
-
-                    <h5 class="card-title">Informações de Endereço</h5>
-
-                    <div class="row">
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                CEP
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.zipCode"/>
-                        </div>
-                        <div class="col-sm-7">
-                            <label class="col-form-label">
-                                Endereço
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.address"/>
-                        </div>
-                        <div class="col-sm-2">
-                            <label class="col-form-label">
-                                Número
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.number"/>
+                            <input type="text" class="form-control" placeholder="Item"
+                                   required="required" ng-model="doacao.descricao">
                         </div>
                     </div>
-
-                    </br>
-                    <div class="row">
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                Complemento
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.complement"/>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                Bairro
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.neighborhood"/>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                Estado
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.uf"/>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="col-form-label">
-                                Cidade
-                                <small>*</small>
-                            </label>
-                            <input class="form-control"
-                                   type="text"
-                                   ng-model="employee.city"/>
-                        </div>
-                    </div>
-
-                    </br>
-                    </br>
-
-                    <h5 class="card-title">Informações de Adicionais</h5>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label class="col-form-label">
-                                Observações
-                                <small>*</small>
-                            </label>
-                            <textarea class="form-control"
-                                      type="text"
-                                      ng-model="employee.note"
-                                      rows="10">
-                            </textarea>
-                        </div>
-                    </div>
-
-
                 </div>
 
-                <div class="category form-category">
-                    <small>*</small> Campos Obrigatórios </div>
+                </br>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="col-form-label">
+                            Descrição
+                            <small>*</small>
+                            O que vc tem a dizer sobre esta campanha?
+                        </label>
+                        <textarea class="form-control"
+                                  type="text"
+                                  ng-model="doacao.descricaoCampanha"
+                                  rows="5">
+                        </textarea>
+                    </div>
+                </div>
+
+                </br>
 
                 <div class="form-footer text-right">
-
                     <button ng-click="back()"
                             class="btn">Voltar</button>
 
-                    <button ng-click="submit()"
-                            class="btn btn-primary">Editar</button>
+                    <button ng-click="save(doacao)"
+                            class="btn btn-primary">Confirmar Doação</button>
                 </div>
             </div>
+
         </form>
     </div>
 </div>

@@ -1,4 +1,6 @@
-angular.module("app").controller("doacaoController", function ($scope, doacaoService) {
+angular.module("app").controller("doacaoController", function ($scope, doacaoService, $location, $routeParams) {
+
+    var id = $routeParams.id;
 
     $scope.doacao = {};
 
@@ -10,10 +12,13 @@ angular.module("app").controller("doacaoController", function ($scope, doacaoSer
         });
     };
 
-    var save =  function () {
-        doacaoService.saveDoacao().success(function (data) {
+    $scope.save =  function (doacao) {
+        $scope.doacao.pessoa = id;
+        $scope.doacao.campanha = $rootScope.campanha.id;
+        doacaoService.saveDoacao($scope.doacao).success(function (data) {
             $scope.limpar();
             $scope.changeToList();
+            $location.path("/campanha");
         });
     };
 
@@ -21,12 +26,10 @@ angular.module("app").controller("doacaoController", function ($scope, doacaoSer
         delete $scope.doacao;
     };
 
-    $scope.changeToList = function () {
+    $scope.onInit = function () {
+        $scope.doacao.campanha = $rootScope.campanha.id;
         listar();
-        $scope.registrar = false;
-        $scope.listar = true;
-        $scope.editar = false;
     };
 
-    $scope.changeToList();
+    $scope.onInit();
 });

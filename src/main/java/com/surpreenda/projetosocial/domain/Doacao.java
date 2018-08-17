@@ -15,11 +15,14 @@ public class Doacao implements Serializable {
     @Column(name = "QUANTIDADE")
     private Long quantidade;
 
-    @Column(name = "UNIDADEMEDIDA")
+    @Column(name = "UNIDADE_MEDIDA")
     private String unidadeMedida;
 
     @Column(name = "DESCRICAO")
     private String descricao;
+
+    @Column(name = "DESCRICAO_CAMPANHA")
+    private String descricaoCampanha;
 
     @ManyToOne
     @JoinColumn(name = "CAMPANHA_ID")
@@ -48,6 +51,14 @@ public class Doacao implements Serializable {
 
     public Long getQuantidade() {
         return quantidade;
+    }
+
+    public String getDescricaoCampanha() {
+        return descricaoCampanha;
+    }
+
+    public void setDescricaoCampanha(String descricaoCampanha) {
+        this.descricaoCampanha = descricaoCampanha;
     }
 
     public void setQuantidade(Long quantidade) {

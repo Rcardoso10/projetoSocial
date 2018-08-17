@@ -1,6 +1,6 @@
 angular.module("app").config(function ($routeProvider) {
 
-    $routeProvider.when("/doacao",{
+    $routeProvider.when("/doacao/:id",{
         controller : "doacaoController",
         templateUrl : "view/doacao.html"
     })
@@ -9,15 +9,11 @@ angular.module("app").config(function ($routeProvider) {
             templateUrl : "view/campanha.html"
         })
 
-        .when("/campanha/participar",{
-            controller : "campanhaController",
-            templateUrl : "view/campanhaParticipar.html"
+        .when("/pessoas",{
+            controller : "pessoaController",
+            templateUrl : "view/pessoa.html"
         })
 
-        .when("/dashboard",{
-            controller: "dashboardController",
-            templateUrl: "view/dashboard.html"
-        })
 
         .otherwise({redirectTo: "/dashboard"});
 });

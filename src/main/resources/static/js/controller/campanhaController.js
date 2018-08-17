@@ -1,4 +1,4 @@
-angular.module("app").controller("campanhaController", function ($scope, campanhaService) {
+angular.module("app").controller("campanhaController", function ($scope, campanhaService, $location, $rootScope) {
 
     $scope.campanha = {};
 
@@ -10,14 +10,19 @@ angular.module("app").controller("campanhaController", function ($scope, campanh
         });
     };
 
-    var save = function () {
+    $scope.onclick =  function(campanha){
+      $rootScope.campanha = campanha;
+      $location.path('/pessoas');
+    };
+
+    $scope.save = function () {
         campanhaService.saveCampanha($scope.campanha).success(function (data) {
             $scope.limpar();
             $scope.changeToList();
         });
     };
 
-    var update  = function(){
+    $scope.update  = function(){
         campanhaService.updateCampanha($scope.campanha).success(function (data) {
             $scope.limpar();
             $scope.changeToList();

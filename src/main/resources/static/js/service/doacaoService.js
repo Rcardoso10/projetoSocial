@@ -5,11 +5,11 @@ angular.module("app").factory("doacaoService", function ($http, defaultUrl) {
     };
 
     var _saveDoacao = function (doacao) {
-        return $http.save(defaultUrl.getServerUrl() + "/doacao", doacao);
+        return $http.post(defaultUrl.getServerUrl() + "/doacao", doacao);
     };
 
     var _updateDoacao =  function (doacao) {
-        return $http.update(defaultUrl.getServerUrl() + "/doacao" + "/" + doacao.id, doacao);
+        return $http.put(defaultUrl.getServerUrl() + "/doacao" + "/" + doacao.id, doacao);
     };
 
     var _deleteDoacao =  function (doacao) {
