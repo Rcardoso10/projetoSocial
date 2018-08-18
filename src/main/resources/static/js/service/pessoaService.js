@@ -1,15 +1,15 @@
 angular.module("app").factory("pessoaService", function ($http, defaultUrl) {
 
     var _getPessoas = function () {
-        return $http.get(defaultUrl.getServerUrl() + "/pessoas");
+        return $http.get(defaultUrl.getServerUrl() + "/pessoas"+  "/list");
+    };
+
+    var _getPessoasByCpf = function (cpf) {
+        return $http.get(defaultUrl.getServerUrl() + "/pessoas" + "/buscar" + "/" + cpf);
     };
 
     var _savePessoa = function (pessoa) {
         return $http.post(defaultUrl.getServerUrl() + "/pessoas", pessoa);
-    };
-
-    var _findById = function (pessoa) {
-        return $http.get(defaultUrl.getServerUrl() + "/pessoas" + "/" + pessoa.cpf, pessoa);
     };
 
     var _updatePessoa = function (pessoa) {
@@ -25,7 +25,7 @@ angular.module("app").factory("pessoaService", function ($http, defaultUrl) {
         savePessoa : _savePessoa,
         updatePessoa : _updatePessoa,
         deletePessoa : _deletePessoa,
-        findById : _findById
+        findByCpf : _getPessoasByCpf
     };
 
 });

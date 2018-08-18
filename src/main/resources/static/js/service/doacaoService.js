@@ -1,7 +1,7 @@
 angular.module("app").factory("doacaoService", function ($http, defaultUrl) {
 
     var _getDoacao = function () {
-        return $http.get(defaultUrl.getServerUrl() + "/doacao");
+        return $http.get(defaultUrl.getServerUrl() + "/doacao/list");
     };
 
     var _saveDoacao = function (doacao) {

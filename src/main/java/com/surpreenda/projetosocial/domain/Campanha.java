@@ -1,6 +1,7 @@
 package com.surpreenda.projetosocial.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -36,10 +37,21 @@ public class Campanha implements Serializable {
     @Column(name = "DATAFINAL")
     private Date dataFinal;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "campanha")
     private List<Doacao> doacaoList = new ArrayList<>();
 
     public Campanha(){
+    }
+
+    public Campanha(String titulo, String status, String descricao, Date dataInicio,
+                    Date dataFinal) {
+        this.titulo = titulo;
+        this.status = status;
+        this.descricao = descricao;
+        this.dataInicio = dataInicio;
+        this.dataFinal = dataFinal;
+
     }
 
     public Long getId() {

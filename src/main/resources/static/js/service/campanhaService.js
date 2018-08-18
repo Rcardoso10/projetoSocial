@@ -12,6 +12,10 @@ angular.module("app").factory("campanhaService", function ($http, defaultUrl) {
         return $http.put(defaultUrl.getServerUrl() + "/campanha" + "/" + campanha.id, campanha);
     };
 
+    var _buscaCampanhaById =  function (id) {
+        return $http.get(defaultUrl.getServerUrl() + "/campanha" + "/" + id);
+    };
+
     var _deleteCampanha  = function (campanha) {
         return $http.delete(defaultUrl.getServerUrl() + "/campanha" + "/" + campanha.id,campanha);
     };
@@ -20,7 +24,8 @@ angular.module("app").factory("campanhaService", function ($http, defaultUrl) {
         getCampanha : _getCampanha,
         saveCampanha : _saveCampanha,
         updateCampanha : _updateCampanha,
-        deleteCampanha : _deleteCampanha
+        deleteCampanha : _deleteCampanha,
+        buscaCampanhaById : _buscaCampanhaById
     };
 
 });

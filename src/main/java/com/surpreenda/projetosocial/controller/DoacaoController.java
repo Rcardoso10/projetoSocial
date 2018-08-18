@@ -19,7 +19,7 @@ public class DoacaoController {
         this.doacaoService =  service;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity findAll(){
         return ResponseEntity.ok(this.doacaoService.findAll());
     }
@@ -50,7 +50,7 @@ public class DoacaoController {
     @DeleteMapping("/{id}")
     public ResponseEntity delete (@PathVariable Long id){
         try {
-            doacaoService.delele(id);
+            doacaoService.delete(id);
             return ResponseEntity.ok().build();
         }catch (ObjectNotFoundException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

@@ -19,7 +19,7 @@ public class PessoaController {
         this.pessoaService = service;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity findAll(){
         return ResponseEntity.ok(this.pessoaService.findAll());
     }
@@ -27,6 +27,11 @@ public class PessoaController {
     @GetMapping("/{id}")
     public ResponseEntity findOne(@PathVariable Long id){
         return ResponseEntity.ok(this.pessoaService.findOne(id));
+    }
+
+    @GetMapping("/buscar/{cpf}")
+    public ResponseEntity findByCpf(@PathVariable String cpf){
+        return ResponseEntity.ok(this.pessoaService.findByCpf(cpf));
     }
 
     @PostMapping

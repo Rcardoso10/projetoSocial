@@ -10,6 +10,8 @@ public interface PessoaService {
 
     Pessoa findOne(Long id);
 
+    Pessoa findByCpf (String cpf);
+
     Pessoa save( Pessoa pessoa);
 
     void delete (Long id);

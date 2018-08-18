@@ -11,6 +11,6 @@ public interface DoacaoService {
 
     Doacao save(Doacao doacao);
 
-    void delele (Long id);
+    void delete (Long id);
 
 }

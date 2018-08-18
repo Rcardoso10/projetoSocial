@@ -11,8 +11,8 @@
         <div class="circle-tile-content custom">
           <div class="circle-tile-description text-faded">
             <p>Título da Campanha : {{campanha.titulo}}</p>
-            <p>Data de Início : {{campanha.dataInicio}}</p>
-            <p>Data do fim : {{campanha.dataFinal}}</p>
+            <p>Data de Início : {{campanha.dataInicio | date : "dd/MM/y"}}</p>
+            <p>Data do fim : {{campanha.dataFinal | date : "dd/MM/y"}}</p>
             <p>Descrição : {{campanha.descricao}}</p>
           </div>
           <a ng-click="onclick(campanha)" class="circle-tile-footer">Participar <i class="fa fa-chevron-circle-right" style="cursor: pointer"></i></a>

@@ -1,0 +1,31 @@
+<div class="container">
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Endereco</th>
+        <th>Telefone</th>
+        <th>Cidade</th>
+        <th>Cep</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="pessoa in pessoas">
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.endereco}}</td>
+        <td>{{pessoa.telefone}}</td>
+        <td>{{pessoa.cidade}}</td>
+        <td>{{pessoa.estado}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Nome</th>
+        <th>Endereco</th>
+        <th>Telefone</th>
+        <th>Cidade</th>
+        <th>Cep</th>
+    </tr>
+    </tfoot>
+</table>
+</div>

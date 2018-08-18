@@ -42,7 +42,7 @@ public class DoacaoServiceImpl implements DoacaoService {
     }
 
     @Override
-    public void delele(Long id) {
+    public void delete(Long id) {
         this.doacaoRepository.delete(id);
     }
 }

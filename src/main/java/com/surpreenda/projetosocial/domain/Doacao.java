@@ -1,11 +1,13 @@
 package com.surpreenda.projetosocial.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 public class Doacao implements Serializable {
-    private static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,16 +31,20 @@ public class Doacao implements Serializable {
     private Campanha campanha;
 
     @OneToOne
-    @JoinColumn(name = "PESSOA_ID")
+    @JoinColumn(name = "PESSOA_ID", referencedColumnName = "CPF")
     private Pessoa pessoa;
+
 
     public Doacao(){
     }
 
-    public Doacao(Long quantidade, String unidadeMedida, String descricao) {
+    public Doacao(Long quantidade, String unidadeMedida, String descricao,
+                  String descricaoCampanha) {
         this.quantidade = quantidade;
         this.unidadeMedida = unidadeMedida;
         this.descricao = descricao;
+        this.descricaoCampanha = descricaoCampanha;
+
     }
 
     public Long getId() {

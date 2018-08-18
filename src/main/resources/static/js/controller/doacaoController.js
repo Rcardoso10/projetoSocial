@@ -1,25 +1,42 @@
-angular.module("app").controller("doacaoController", function ($scope, doacaoService, $location, $routeParams) {
+angular.module("app").controller("doacaoController", function ($scope, doacaoService, $location, $routeParams,
+                                                               pessoaService, campanhaService) {
+
+    //$scope.doacao = {};
 
     var id = $routeParams.id;
+    var cpf = $routeParams.cpf;
 
-    $scope.doacao = {};
+    var listaObj = function () {
+
+        pessoaService.findByCpf(cpf).success(function (data) {
+            $scope.pessoa = data;
+        }).error(function (data) {
+            alert("Erro ao buscar os pessoas!");
+        });
+
+        campanhaService.buscaCampanhaById(id).success(function (data) {
+            $scope.campanha = data;
+        }).error(function (data) {
+           // alert("Erro ao buscar por campanhas!");
+        });
+    };
 
     var listar =  function () {
         doacaoService.getDoacao().success(function (data) {
-            $scope.doacao =  data;
+            $scope.doacoes =  data;
         }).error(function (data,status) {
             alert("Erro ao buscar por doações, culpa do Luis!");
         });
     };
 
     $scope.save =  function (doacao) {
-        $scope.doacao.pessoa = id;
-        $scope.doacao.campanha = $rootScope.campanha.id;
-        doacaoService.saveDoacao($scope.doacao).success(function (data) {
+
+        $scope.doacao.pessoa = $scope.pessoa;
+        $scope.doacao.campanha = $scope.campanha;
+        doacaoService.saveDoacao($scope.doacao).success(function () {
             $scope.limpar();
-            $scope.changeToList();
-            $location.path("/campanha");
         });
+        $location.path("/campanha");
     };
 
     $scope.limpar = function () {
@@ -27,9 +44,9 @@ angular.module("app").controller("doacaoController", function ($scope, doacaoSer
     };
 
     $scope.onInit = function () {
-        $scope.doacao.campanha = $rootScope.campanha.id;
         listar();
     };
 
+    listaObj();
     $scope.onInit();
 });

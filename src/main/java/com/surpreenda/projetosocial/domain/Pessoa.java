@@ -1,6 +1,8 @@
 package com.surpreenda.projetosocial.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,16 +39,22 @@ public class Pessoa implements Serializable {
     @JoinColumn(name = "USUARIO_ID")
     private Usuario usuario;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pessoa")
     private List<Doacao> doacaoList = new ArrayList<>();
 
     public Pessoa(){
     }
 
-    public Pessoa(String nome, String endereco, String telefone) {
+    public Pessoa(String nome, String endereco, String telefone,
+                  String cidade, String estado, String cpf) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cpf = cpf;
+
     }
 
     public Long getId() {

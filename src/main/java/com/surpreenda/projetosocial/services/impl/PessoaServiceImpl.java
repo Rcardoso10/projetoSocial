@@ -34,6 +34,14 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
+    public Pessoa findByCpf(String cpf) {
+        if(cpf == null){
+            throw new InvalidParametersException("Cpf não existe!");
+        }
+        return this.pessoaRepository.findByCpf(cpf);
+    }
+
+    @Override
     public Pessoa save(Pessoa pessoa) {
         if(pessoa == null){
             throw new ObjectNotFoundException("Objeto pessoa não pode ser nulo!");

@@ -10,21 +10,13 @@ angular.module("app").controller("pessoaController", function ($scope, pessoaSer
         });
     };
 
+
     $scope.save = function (pessoa) {
         pessoaService.savePessoa($scope.pessoa).success(function () {
-            $scope.buscaId(pessoa);
             $scope.limpar();
-            $location.path("/doacao/" + pessoanova.id);
+            $location.path("/doacao/"+ pessoa.campanha + "/" + pessoa.cpf );
         });
 
-    };
-
-    $scope.buscaId = function(){
-        pessoaService.findById($scope.pessoa).success(function (data) {
-            $scope.pessoanova = data;
-        }).error(function (data,status) {
-            alert("Id não encontrado!");
-        });
     };
 
     $scope.limpar = function () {
@@ -33,13 +25,13 @@ angular.module("app").controller("pessoaController", function ($scope, pessoaSer
 
     $scope.onInit = function () {
         $scope.pessoa.campanha = $rootScope.campanha.id;
-        listar();
     };
 
     $scope.back = function () {
         $location.path('/campanha');
     };
 
-    $scope.onInit();
+    listar();
+    //$scope.onInit();
 
 });
