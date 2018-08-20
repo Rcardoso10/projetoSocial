@@ -22,10 +22,9 @@
 <div class="container">
     <div class="card row justify-content-center" ng-repeat="doacao in doacoes">
         <div class="container">
-            <p>Quantidade doada : {{doacao.quantidade}} {{doacao.unidadeMedida}}</p>
-            <p>De  : {{doacao.descricao}}</p>
-            <p>Mensagem : {{doacao.descricaoCampanha}}</p>
+            <p>Quantidade doada : {{doacao.quantidade}} {{doacao.unidadeMedida}} de {{doacao.descricao}}</p>
             <p>Doador : {{doacao.pessoa.nome}}</p>
+            <p>Mensagem : {{doacao.descricaoCampanha}}</p>
             <p style="text-decoration-color: green">Campanha em : {{doacao.campanha.status}}</p>
         </div>
     </div>
